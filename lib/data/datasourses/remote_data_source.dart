@@ -6,16 +6,17 @@ abstract class GetTeamRemoteDataSource {
   Future<List<PersonModel>> getAllPeople();
 }
 
-class GetteamRemoteDataSourceImpl implements GetTeamRemoteDataSource {
+class GetTeamRemoteDataSourceImpl implements GetTeamRemoteDataSource {
   final String collectionPath = 'persons';
 
   @override
   Future<List<PersonModel>> getAllPeople() async {
     Firestore store = firestore();
-    CollectionReference reference = store.collection(collectionPath);
-    var res = reference.onSnapshot.toList(); 
-    print(res.toString());
+    List<PersonModel> personList = [];
 
-    return null;
+    QuerySnapshot res = await store.collection('persons').get();
+    res.forEach((d) => personList.add(PersonModel.fromJson(d.data())));
+
+    return personList;
   }
 }

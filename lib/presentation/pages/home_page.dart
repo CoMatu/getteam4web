@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:getteam4web/core/auth/auth_service.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,21 +9,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text('You are logged in'),
-          SizedBox(height: 10.0),
-          RaisedButton(
-            onPressed: () {
-              AuthService().signOut();
-            },
-            child: Center(
-              child: Text('Sign out'),
-            ),
-            color: Colors.red,
-          )
-        ],
+      appBar: AppBar(),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () async{
+/*            fs = firestore();
+            var res = await fs.collection('persons').get();
+            res.forEach((d) => print(d.data()));
+            */
+
+
+          },
+          child: Text('Get people list'),
+        ),
       ),
     );
   }
