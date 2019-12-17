@@ -10,16 +10,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      drawer: Drawer(),
       body: Center(
         child: RaisedButton(
-          onPressed: () async{
-/*            fs = firestore();
-            var res = await fs.collection('persons').get();
-            res.forEach((d) => print(d.data()));
-            */
-
-
-          },
+          onPressed: () async {},
           child: Text('Get people list'),
         ),
       ),
